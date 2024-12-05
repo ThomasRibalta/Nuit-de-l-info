@@ -6,6 +6,7 @@ import Quizz from "./Quizz/Quizz.jsx";
 import LoginForm from "./pages/Login.jsx";
 import RegisterForm from "./pages/Register.jsx";
 import MentionLegale from "./pages/Mention.jsx";
+import Admin from "./pages/Admin.jsx";
 import Cgu from "./pages/Cgu.jsx";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/mention" element={<MentionLegale />}></Route>
         <Route path="/cgu" element={<Cgu />}></Route>
         <Route path="*" element={<h1>404 Not Found</h1>}></Route>
+        <Route path="/admin" element={<Admin />}></Route>
       </Routes>
     </>
   );

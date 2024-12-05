@@ -1,135 +1,216 @@
 /* Style général pour la page */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    color: black;
-  }
-
-.container{
-    width: 80vw;
-    right: 10vw;
-    position: absolute;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  color: black;
 }
 
-  /* Style du bouton pour ouvrir le menu */
-  .open-btn {
-    font-size: 30px;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 1;
-  }
-  
-  /* Style du menu latéral (sidenav) */
-  .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.3s;
-    padding-top: 100px;
-  }
-  
-  /* Style des liens dans le menu */
-  .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  /* Changer la couleur des liens au survol */
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-  
-  /* Style pour le bouton de fermeture */
-  .sidenav .close-btn {
-    position: absolute;
-    top: 60px;
-    left: -20px;
-    font-size: 36px;
-    color: #818181;
-    cursor: pointer;
-  }
-  
-  /* Effet au survol du bouton de fermeture */
-  .sidenav .close-btn:hover {
-    color: #f1f1f1;
-  }
+.container {
+  width: 80vw;
+  right: 10vw;
+  position: absolute;
+}
 
+/* Style du bouton pour ouvrir le menu */
+.open-btn {
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+}
+
+/* Style du menu latéral (sidenav) */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 100px;
+}
+
+/* Style des liens dans le menu */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+/* Changer la couleur des liens au survol */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style pour le bouton de fermeture */
+.sidenav .close-btn {
+  position: absolute;
+  top: 60px;
+  left: -20px;
+  font-size: 36px;
+  color: #818181;
+  cursor: pointer;
+}
+
+/* Effet au survol du bouton de fermeture */
+.sidenav .close-btn:hover {
+  color: #f1f1f1;
+}
 
 /* login */
 
-
 .login-div {
-    background-color: wheat;
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-top: 10px;
+  background-color: wheat;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-top: 10px;
 
-    border-radius: 10px;
-    border: 2px solid #3a3a3a; 
-    text-align: center;
-  }
-
-.login-div h1{
-    margin: 10px;
+  border-radius: 10px;
+  border: 2px solid #3a3a3a;
+  text-align: center;
 }
 
-.login-div div{
-    margin: 10px;
+.login-div h1 {
+  margin: 10px;
 }
 
-.login-logo{
-    width: 100px;
+.login-div div {
+  margin: 10px;
 }
 
-.login-div div input{
-    border: 1px solid #3a3a3a; 
-    border-radius: 10px;
-    transition: 0.5s;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.login-logo {
+  width: 100px;
 }
 
-.login-div div input:hover{
-    border: 1px solid #3a3a3a; 
-    border-radius: 0px;
-    transition: 0.5s;
+.login-div div input {
+  border: 1px solid #3a3a3a;
+  border-radius: 10px;
+  transition: 0.5s;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
-#submit{
-    font-size: 15px;
-    transition: 0.5s;
-    border: 1px solid #3a3a3a; 
-    border-radius: 3px;
-
+.login-div div input:hover {
+  border: 1px solid #3a3a3a;
+  border-radius: 0px;
+  transition: 0.5s;
 }
 
-#submit:hover{
-    font-size: 20px;
-    transition: 0.5s;
-    background-color: red;
-    border: 1px solid #3a3a3a;
-    border-radius: 4px;
+#submit {
+  font-size: 15px;
+  transition: 0.5s;
+  border: 1px solid #3a3a3a;
+  border-radius: 3px;
+}
 
+#submit:hover {
+  font-size: 20px;
+  transition: 0.5s;
+  background-color: red;
+  border: 1px solid #3a3a3a;
+  border-radius: 4px;
+}
 
+/* Conteneur principal */
+.log-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+  gap: 20px;
+}
+
+/* Zone de logchat */
+.logchat-box {
+  flex: 2;
+  height: 400px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logchat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.logchat-box::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 4px;
+}
+
+.logchat-box::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}
+
+/* Styles des logs */
+.log {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+/* Logs colorés */
+.log.green {
+  background-color: #4caf50;
+}
+
+.log.red {
+  background-color: #f44336;
+}
+
+.log.yellow {
+  background-color: #ff9800;
+}
+
+/* Zone de stats */
+.logstats-box {
+  flex: 1;
+  height: 400px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logstats-box h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.logstats-box .stat {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.logstats-box .stat span {
+  font-weight: bold;
+  color: #000;
 }

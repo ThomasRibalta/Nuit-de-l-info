@@ -1,21 +1,21 @@
-import { QuestionSchema, Question } from './schema/quizz.schema';
+import { QuizzSchema, Quizz } from './schema/quizz.schema';
 import { InjectModel } from '@nestjs/mongoose';
 import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 
 @Injectable()
 export class QuizzService {
-	constructor(@InjectModel('Question') private readonly QuestionModel: Model<Question>) {}
+  constructor(
+    @InjectModel('Quizz') private readonly QuizzModel: Model<Quizz>,
+  ) {}
 
-	async SubmitResponse(response_user : boolean, id : string){
-		const rep = await this.QuestionModel.findOne({id : id});
-		if (rep.response == response_user)
-			return true
-		else
-			return false
-	}
+  async submitResponse(response_user: boolean, id: string) {
+    const rep = await this.QuizzModel.findOne({ id: id });
+    if (rep.response == response_user) return true;
+    else return false;
+  }
 
-	async GetQuestion(id : string){
-		return await this.QuestionModel.findOne({id : id})
-	}
+  async getQuizz(id: string) {
+    return await this.QuizzModel.findOne({ id: id });
+  }
 }

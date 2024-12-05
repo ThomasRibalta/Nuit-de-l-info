@@ -1,13 +1,14 @@
-import { QuestionSchema } from './schema/quizz.schema';
-import { Import } from './../../../nuit-de-linfo-front/node_modules/@babel/types/lib/index-legacy.d';
+import { QuizzSchema } from './schema/quizz.schema';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Module } from '@nestjs/common';
 import { QuizzController } from './quizz.controller';
 import { QuizzService } from './quizz.service';
 
 @Module({
-	imports : [MongooseModule.forFeature([{ name: 'Question', schema: QuestionSchema }])],
+  imports: [
+    MongooseModule.forFeature([{ name: 'Quizz', schema: QuizzSchema }]),
+  ],
   controllers: [QuizzController],
-  providers: [QuizzService]
+  providers: [QuizzService],
 })
 export class QuizzModule {}

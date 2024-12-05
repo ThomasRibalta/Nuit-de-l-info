@@ -1,0 +1,35 @@
+services:
+  mongo:
+    image: mongo:6.0
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+
+  nest-backend:
+    build:
+      context: ./nestjs-backend
+    container_name: nest-backend
+    ports:
+      - "3030:3030"
+    env_file:
+      - ./nestjs-backend/.env
+    depends_on:
+      - mongo
+    restart: always
+
+  react-frontend:
+    build:
+      context: ./react-frontend
+    container_name: react-frontend
+    ports:
+      - "3000:3000"
+    restart: always
+
+volumes:
+  mongo_data:

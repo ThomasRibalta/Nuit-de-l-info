@@ -18,7 +18,6 @@ def read3line (fd, collection) :
 	ligne[1] = ligne[1].split(':')[1].strip().strip('\n')
 	ligne[2] = ligne[2].split(':')[1].strip().strip('\n')
 	ligne[3] = ligne[3].split(':')[1].strip().strip('\n')
-	print(ligne[2])
 	document = {"id" : ligne[1],"question": ligne[0], "xp": int(ligne[2]), "response": bool(ligne[3])}
 	collection.insert_one(document)
 		

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../coconfor.css";
 import logo from "../image/logo.webp";
 
@@ -8,14 +9,14 @@ const RegisterForm = () => {
   const [password, setPassword] = useState("");
   const [agreeCGU, setAgreeCGU] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      alert("Les mots de passe ne correspondent pas !");
-    } else if (!agreeCGU) {
+    if (!agreeCGU) {
       alert("Vous devez accepter les CGU.");
     } else {
-      fetch("http://51.254.125.168:3030/auth/register", {
+      fetch("http://localhost:3030/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

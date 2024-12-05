@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../coconfor.css";
 import logo from "../image/logo.webp";
 
@@ -6,9 +7,11 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://51.254.125.168:3030/auth/login", {
+    fetch("http://localhost:3030/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

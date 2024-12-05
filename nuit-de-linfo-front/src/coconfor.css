@@ -7,7 +7,10 @@ body {
     color: black;
   }
 
-
+.container{
+    width: 80vw;
+    right: 10vw;
+}
   /* Style du bouton pour ouvrir le menu */
   .open-btn {
     font-size: 30px;

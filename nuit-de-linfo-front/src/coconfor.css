@@ -4,8 +4,10 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    color: black;
   }
-  
+
+
   /* Style du bouton pour ouvrir le menu */
   .open-btn {
     font-size: 30px;

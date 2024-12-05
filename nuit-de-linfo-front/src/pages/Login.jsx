@@ -14,7 +14,10 @@ const LoginForm = () => {
         "Content-Type": "application/json",
       },
       credentials: "include",
-      body: JSON.stringify(formValues),
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
     })
       .then((response) => {
         if (response.status === 200 || response.status === 201) {

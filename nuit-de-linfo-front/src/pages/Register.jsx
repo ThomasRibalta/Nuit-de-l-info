@@ -21,7 +21,11 @@ const RegisterForm = () => {
           "Content-Type": "application/json",
         },
         credentials: "include",
-        body: JSON.stringify(formValues),
+        body: JSON.stringify({
+          username: username,
+          email: email,
+          password: password,
+        }),
       })
         .then((response) => {
           console.log(response);

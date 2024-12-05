@@ -13,9 +13,8 @@ function Quizz() {
 			'Content-Type': 'application/json'
 		}
 	})
-	.then(response => response.json())
-	.then(data => console.log(data))
-	.catch(error => err);},[])
+	.then(response => response)
+	.then(data => console.log(data));},[])
 
 	const Send = function(response){
 		fetch('http://localhost:3030/quizz/1', {
@@ -24,10 +23,8 @@ function Quizz() {
 				'Content-Type': 'application/json'
 			}
 		})
-		.then(response => response.json())
-		.then(data => data)
-		.catch(error => err);
-	}
+		.then(response => response)
+		.then(data => data);}
   return (
 		<>
 		<div>

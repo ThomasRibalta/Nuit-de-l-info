@@ -5,19 +5,21 @@ def read3line (fd, collection) :
 	j = 0
 	h = 0
 	ligne = [] 
-	while (i < 3) :
+	while (i < 4) :
 		ligne.append(fd.readline())
 		if (ligne[i] == ''):
 			return (False)
 		i += 1
 	i = 0
-	if (ligne[i] == '-') :
+	if (ligne[i][0] == '-') :
 		ligne[i] = ligne[i][2 : ]
 		i = i + 1
+	ligne[0] = ligne[0].strip('\n')
 	ligne[1] = ligne[1].split(':')[1].strip().strip('\n')
 	ligne[2] = ligne[2].split(':')[1].strip().strip('\n')
-	print(ligne[1])
-	document = {"question": ligne[0], "xp": int(ligne[1]), "response": bool(ligne[2])}
+	ligne[3] = ligne[3].split(':')[1].strip().strip('\n')
+	print(ligne[2])
+	document = {"id" : ligne[1],"question": ligne[0], "xp": int(ligne[2]), "response": bool(ligne[3])}
 	collection.insert_one(document)
 		
 

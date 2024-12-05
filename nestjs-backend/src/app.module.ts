@@ -13,7 +13,7 @@ import { QuizzModule } from './quizz/quizz.module';
     ConfigModule.forRoot({ isGlobal: true }),
     AuthModule,
     UsersModule,
-    MongooseModule.forRoot(process.env.MONGODB_URI),
+    MongooseModule.forRoot(process.env.MONGODB_URI), // Connexion a la base avec .env
     AdminModule,
     QuizzModule,
   ],

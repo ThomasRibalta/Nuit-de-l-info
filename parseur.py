@@ -26,7 +26,7 @@ def read3line (fd, collection) :
 client = MongoClient("mongodb://root:rootpassword@localhost:27017/nuitInfo?authSource=admin")
 fd = open("questions.txt", mode = 'r', encoding = 'utf-8', errors='ignore')
 db = client["nuitInfo"]
-collection = db["Quizz"]
+collection = db["quizzs"]
 
 while (read3line(fd, collection) != False):
 	pass

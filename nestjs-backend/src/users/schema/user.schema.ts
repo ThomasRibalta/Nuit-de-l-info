@@ -6,6 +6,8 @@ export const UserSchema = new Schema({
   password: { type: String, required: true },
   role: { type: String, required: true, default: 'user' },
   xp: { type: Number, required: true, default: 0 },
+  achievements: { type: Array, required: true, default: [] },
+  titles: { type: Array, required: true, default: [] },
 });
 
 export interface User extends Document {
@@ -15,4 +17,6 @@ export interface User extends Document {
   password: string;
   role: string;
   xp: number;
+  achievements: Array<string>;
+  titles: Array<string>;
 }

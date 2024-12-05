@@ -10,7 +10,9 @@ body {
 .container{
     width: 80vw;
     right: 10vw;
+    position: absolute;
 }
+
   /* Style du bouton pour ouvrir le menu */
   .open-btn {
     font-size: 30px;

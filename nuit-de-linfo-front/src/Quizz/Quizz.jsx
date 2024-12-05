@@ -1,4 +1,5 @@
-import { useNavigate, useParams, useEffect, useLocation} from 'react-router-dom';
+import { useNavigate, useParams, useLocation} from 'react-router-dom';
+import { useEffect } from 'react';
 
 function Quizz() {
   //const [count, setCount] = useState(0)
@@ -6,19 +7,19 @@ function Quizz() {
 	const { number } = useParams();
 	const root = useLocation();
 
-	useEffect() = fetch('https://', {
+	useEffect(()=>{ fetch('http://localhost:3030/quizz/1', {
 		method: 'GET', // ou 'POST', 'PUT', 'DELETE', etc.
 		headers: {
 			'Content-Type': 'application/json'
 		}
 	})
 	.then(response => response.json())
-	.then(data => data)
-	.catch(error => err);
+	.then(data => console.log(data))
+	.catch(error => err);},[])
 
 	const Send = function(response){
-		fetch('https://', {
-			method: 'POST', // ou 'POST', 'PUT', 'DELETE', etc.
+		fetch('http://localhost:3030/quizz/1', {
+			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json'
 			}

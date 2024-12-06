@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { Log } from './schema/logs.schema';
+import { HttpException, HttpStatus } from '@nestjs/common';
 
 @Injectable()
 export class LogsService {
@@ -13,6 +14,7 @@ export class LogsService {
   }
 
   async getLogsOrderByDate() {
-    return await this.logModel.find().sort({ createdAt: -1 });
+    const log = await this.logModel.find().sort({ createdAt: -1 });
+    return new HttpException({ log: log }, HttpStatus.OK);
   }
 }

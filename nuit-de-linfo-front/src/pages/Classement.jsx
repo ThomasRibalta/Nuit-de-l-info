@@ -23,7 +23,7 @@ const Classement = () => {
   };
 
   const userColumns = [
-    { header: "Position", accessor: "position", sortable: false },
+    //{ header: "Position", accessor: "position", sortable: false },
     { header: "Username", accessor: "username", sortable: false },
     { header: "XP", accessor: "xp", sortable: false },
   ];
@@ -34,7 +34,7 @@ const Classement = () => {
 
   return (
     <div className="container">
-      <h2>Users</h2>
+      <h2>Classement</h2>
       <TableWithPaginationAndSorting
         columns={userColumns}
         fetchData={fetchUsers}

@@ -13,7 +13,7 @@ function Quizz() {
 			'Content-Type': 'application/json'
 		}
 	})
-	.then(response => response)
+	.then(response => response.json())
 	.then(data => console.log(data));},[])
 
 	const Send = function(response){
@@ -23,15 +23,15 @@ function Quizz() {
 				'Content-Type': 'application/json'
 			}
 		})
-		.then(response => response)
-		.then(data => data);}
+		.then(response => response.json())
+		.then(data => console.log(data));}
   return (
 		<>
 		<div>
 		<div>
 			<h1>{}</h1>
-			<button onClick={Send("True")}>Vrai</button>
-			<button onClick={Send("False")}>Faux</button>
+			<button onClick={() => {Send("True")}}>Vrai</button>
+			<button onClick={() =>{Send("False")}}>Faux</button>
 
 		</div>
 		</div>

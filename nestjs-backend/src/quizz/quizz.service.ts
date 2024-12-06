@@ -16,6 +16,6 @@ export class QuizzService {
   }
 
   async getQuizz(id: string) {
-    return await this.QuizzModel.findOne({ id: id });
+    return await this.QuizzModel.findOne({ id: id }).select('-response');
   }
 }

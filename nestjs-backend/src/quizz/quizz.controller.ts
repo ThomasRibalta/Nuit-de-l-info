@@ -14,11 +14,11 @@ export class QuizzController {
   constructor(private readonly quizzservice: QuizzService) {}
 
   @Get(':id')
-  GetQuestion(@Param('id') id: string) {
+  getQuestion(@Param('id') id: string) {
     return this.quizzservice.getQuizz(id);
   }
   @Post(':id')
-  SubmitResponse(@Body() response: boolean, @Param('id') id: string) {
+  submitResponse(@Body() response: boolean, @Param('id') id: string) {
     return this.quizzservice.submitResponse(response, id);
   }
 }

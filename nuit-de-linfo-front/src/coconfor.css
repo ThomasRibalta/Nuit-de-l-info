@@ -7,10 +7,20 @@ body {
   color: black;
 }
 
+* {
+  list-style: none;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .container {
+  margin-top: 100px;
   width: 80vw;
   right: 10vw;
-  position: absolute;
 }
 
 /* Style du bouton pour ouvrir le menu */
@@ -37,7 +47,6 @@ body {
   padding-right: 20px;
   padding-bottom: 20px;
   padding-top: 10px;
-
   border-radius: 10px;
   border: 2px solid #3a3a3a;
   text-align: center;
@@ -172,62 +181,60 @@ body {
   color: #000;
 }
 
-
-
 /* classement */
 
 .classement-div {
-    background-color: wheat;
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 20px;
-    padding-top: 10px;
+  background-color: wheat;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+  padding-top: 10px;
 
-    border-radius: 10px;
-    border: 2px solid #3a3a3a; 
-    text-align: center;
-    width: 60vw;
-  }
-
-.classement-div h1{
-    margin: 5px;
+  border-radius: 10px;
+  border: 2px solid #3a3a3a;
+  text-align: center;
+  width: 60vw;
 }
 
-.classement-div p{
-    margin: 3px;
+.classement-div h1 {
+  margin: 5px;
 }
 
+.classement-div p {
+  margin: 3px;
+}
 
 .classement table {
-    width: 100%;
-    border: none;
-    border-collapse: separate;
-    border-spacing: 0;
-    overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 1px solid black;
-  }
+  width: 100%;
+  border: none;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid black;
+}
 
-.classement td, .classement th {
-    border: 1px solid black;
-    padding: 5px;
-  }
+.classement td,
+.classement th {
+  border: 1px solid black;
+  padding: 5px;
+}
 
-  .classement tr {
-    height: 20px;
-  }
+.classement tr {
+  height: 20px;
+}
 
-.crown{
-    width: 20px;
-    left: 50%;
-    position: relative;
-    transform: translate(-50%);
+.crown {
+  width: 20px;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%);
 }
 
 /* credit */
@@ -302,4 +309,8 @@ body {
   }
 .credit-div a{
     color: black;
+}
+
+.black-font{
+    color:black;
 }

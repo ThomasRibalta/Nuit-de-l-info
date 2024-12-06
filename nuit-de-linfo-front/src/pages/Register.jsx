@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../coconfor.css";
 import logo from "../image/logo.webp";
+import { useAuth } from "../context/Auth";
 
 const RegisterForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [agreeCGU, setAgreeCGU] = useState(false);
+
+  const { login } = useAuth();
 
   const navigate = useNavigate();
 
@@ -104,7 +107,7 @@ const RegisterForm = () => {
             onChange={(e) => setAgreeCGU(e.target.checked)}
           />
           <label htmlFor="agreeCGU">
-            J'accepte les <a href="#">CGU</a>
+            J'accepte les <a href="/cgu">CGU</a>
           </label>
           <br />
         </div>

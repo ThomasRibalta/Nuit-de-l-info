@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useNavigate } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../coconfor.css";
 
 function LogViewer() {

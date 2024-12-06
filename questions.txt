@@ -1,5 +1,50 @@
-- Leau est l'humain ?
-	id:1
-	xp:80000
-	response:vrai 
-
+- Le corps humain est composé de plus d’eau que la planète Terre
+	id: 1
+	xp:100
+	response:false
+	explication:La Terre est composée à environ 70 % d'eau, alors que le corps humain est composé à environ 60 % d'eau.
+- Les courants océaniques et le système sanguin transportent des substances essentielles pour maintenir un équilibre vital.
+	id: 2
+	xp:100
+	response:vrai
+	explication:
+- Comme les océans, les poumons du corps humain sont capables de générer leur propre oxygène.
+	id: 3
+	xp:100
+	response:false
+	explication:Les poumons ne génèrent pas d’oxygène ; ils le captent depuis l’air.
+- Les océans aident à réguler la température mondiale, tout comme l'eau dans le corps humain aide à réguler la température corporelle.
+	id: 4
+	xp:100
+	response:true
+	explication:
+- Les océans et le corps humain contiennent des micro-organismes qui jouent un rôle crucial dans leur écosystème.
+	id: 5
+	xp:100
+	response:true
+	explication:
+- Les mouvements des marées dans l’océan sont similaires aux battements du cœur humain.
+	id: 6
+	xp:100
+	response:false
+	explication:Les marées sont causées par la gravité de la Lune et du Soleil, pas par un mécanisme interne.
+- Le sel dans les océans est similaire aux sels minéraux présents dans le sang humain.
+	id: 7
+	xp:100
+	response:true
+	explication:
+- Les océans et le corps humain utilisent des signaux électriques pour coordonner leurs fonctions essentielles.
+	id: 8
+	xp:100
+	response:false
+	explication:Les courants océaniques ne reposent pas sur des signaux électriques, contrairement au système nerveux.
+- Le système lymphatique humain joue un rôle similaire à celui des courants océaniques en filtrant et redistribuant les fluides.
+	id: 9
+	xp:100
+	response:true
+	explication:
+- La densité de l’eau dans les océans est toujours constante, tout comme la densité du sang humain.
+	id: 10
+	xp:100
+	response:false
+	explication:La densité de l'eau varie selon la salinité et la température, tout comme la viscosité du sang peut changer selon l’hydratation et d'autres facteurs.

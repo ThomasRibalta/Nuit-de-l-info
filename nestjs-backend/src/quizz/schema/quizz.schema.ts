@@ -5,6 +5,7 @@ export const QuizzSchema = new Schema({
   id: { type: String, required: true, unique: true },
   xp: { type: Number, required: true },
   response: { type: Boolean, required: true },
+	explication: {type: String, required: true},
 });
 
 export interface Quizz extends Document {
@@ -12,4 +13,5 @@ export interface Quizz extends Document {
   id: string;
   xp: number;
   response: boolean;
+	explication: string;
 }

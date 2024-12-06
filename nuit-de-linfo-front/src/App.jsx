@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Acceuil from "./Quizz/Acceuil.jsx";
 import Quizz from "./Quizz/Quizz.jsx";
@@ -8,6 +7,7 @@ import RegisterForm from "./pages/Register.jsx";
 import MentionLegale from "./pages/Mention.jsx";
 import Admin from "./pages/Admin.jsx";
 import Cgu from "./pages/Cgu.jsx";
+import Header from "./composant/Header.jsx";
 
 function App() {
   return (
@@ -20,8 +20,8 @@ function App() {
         <Route path="/register" element={<RegisterForm />}></Route>
         <Route path="/mention" element={<MentionLegale />}></Route>
         <Route path="/cgu" element={<Cgu />}></Route>
-        <Route path="*" element={<h1>404 Not Found</h1>}></Route>
         <Route path="/admin" element={<Admin />}></Route>
+        <Route path="*" element={<h1>404 Not Found</h1>}></Route>
       </Routes>
     </>
   );

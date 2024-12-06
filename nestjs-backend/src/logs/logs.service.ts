@@ -13,7 +13,13 @@ export class LogsService {
     return await log.save();
   }
 
-  async getLogsOrderByDate() {
+  async getLogsOrderByDate(req: any) {
+    if (!req.user.role || req.user.role !== 'admin') {
+      return new HttpException(
+        { error: 'You do not have permission to access this resource' },
+        HttpStatus.FORBIDDEN,
+      );
+    }
     const log = await this.logModel.find().sort({ createdAt: -1 });
     return new HttpException({ log: log }, HttpStatus.OK);
   }

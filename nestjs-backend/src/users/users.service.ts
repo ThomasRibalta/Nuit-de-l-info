@@ -14,10 +14,10 @@ export class UsersService {
 
   async getUserById(id: string, user: any) {
     if (!id) {
-      this.logsService.createLog('Error', 'User ID is required');
-      return new HttpException('User ID is required', HttpStatus.BAD_REQUEST);
+      this.logsService.createLog('Warning', 'User ID is required');
+      id = user.userId;
     }
-    if (!user.role || user.role !== 'admin') {
+    if ((!user.role || user.role !== 'admin') && user.userId !== id) {
       this.logsService.createLog(
         'Error',
         `Unauthorized access by ${user.email}`,

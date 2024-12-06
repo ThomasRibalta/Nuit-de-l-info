@@ -55,10 +55,24 @@ const Header = ({ Auth }) => {
         )}
       </header>
       <nav id="mynav" className="sidenav">
-        <a href="#">Accueil</a>
-        <a href="#">Services</a>
-        <a href="#">À propos</a>
-        <a href="#">Contact</a>
+        <a href="/">Accueil</a>
+        <a href="/credit">Credit</a>
+        <a href="/Quizz">Quizz</a>
+        <a href="/mention">Mention</a>
+        <a href="/cgu">CGU</a>
+        {Auth.isAuthenticated && (
+          <>
+            <a href="/profil">Profil</a>
+            <a href="/Classement">Classement</a>
+          </>
+        )}
+        {Auth.isAuthenticated && Auth.user.role == "admin" && (
+          <>
+            <a href="/admin">Admin</a>
+            <a href="/admin/users">Utilisateurs (admin)</a>
+            <a href="/admin/logs">Logs</a>
+          </>
+        )}
       </nav>
     </>
   );

@@ -43,7 +43,10 @@ export class MetricsService implements OnModuleInit {
     this.httpRequestDuration.observe({ method, path }, duration);
   }
 
-  async getMetrics(): Promise<any> {
+  async getMetrics(req: any): Promise<any> {
+    if (!req.user.role || req.user.role !== 'admin') {
+      return { error: 'You do not have permission to access this resource' };
+    }
     const metric = await this.registry.getMetricsAsJSON();
     return metric;
   }

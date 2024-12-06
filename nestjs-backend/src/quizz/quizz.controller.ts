@@ -11,8 +11,9 @@ export class QuizzController {
   getQuestion(@Param('id') id: string, @Req() req: any,) {
     return this.quizzservice.getQuizz(id, req);
   }
-  @Post(':id')
-  submitResponse(@Body() response: boolean, @Param('id') id: string) {
-    return this.quizzservice.submitResponse(response, id);
+	@UseGuards(JwtAuthGuard)
+	@Post(':id')
+  submitResponse(@Body() response: boolean, @Param('id') id: string, @Req() req: any) {
+    return this.quizzservice.submitResponse(response, id, req);
   }
 }

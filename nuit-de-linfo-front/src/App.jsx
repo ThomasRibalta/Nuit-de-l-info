@@ -8,11 +8,13 @@ import MentionLegale from "./pages/Mention.jsx";
 import Admin from "./pages/Admin.jsx";
 import Cgu from "./pages/Cgu.jsx";
 import Header from "./composant/Header.jsx";
+import { AuthProvider, useAuth } from "./context/Auth.jsx";
 
 function App() {
+  const { Auth } = useAuth();
   return (
     <>
-      <Header />
+      <Header Auth={Auth} />
       <div className="body">
         <Routes>
           <Route path="/" element={<Acceuil />}></Route>

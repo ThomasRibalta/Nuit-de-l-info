@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../coconfor.css";
 import logo from "../image/logo.webp";
+import { useAuth } from "../context/Auth";
 
 const RegisterForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [agreeCGU, setAgreeCGU] = useState(false);
+
+  const { login } = useAuth();
 
   const navigate = useNavigate();
 

@@ -6,13 +6,14 @@ import { JwtAuthGuard } from '../jwt/jwt-auth.guard';
 export class QuizzController {
   constructor(private readonly quizzservice: QuizzService) {}
 
-	@UseGuards(JwtAuthGuard)
+	
   @Get(':id')
+	@UseGuards(JwtAuthGuard)
   getQuestion(@Param('id') id: string, @Req() req: any,) {
     return this.quizzservice.getQuizz(id, req);
   }
-	@UseGuards(JwtAuthGuard)
 	@Post(':id')
+	@UseGuards(JwtAuthGuard)
   submitResponse(@Body() response: boolean, @Param('id') id: string, @Req() req: any) {
     return this.quizzservice.submitResponse(response, id, req);
   }

@@ -9,7 +9,7 @@ function Acceuil() {
 	}
   return (
 		<>
-		<div>
+		<div style={{top :"60px", position :"relative"}}>
 			<h1>"Quizz : </h1>
 		<button onClick = {start}> </button>
 		</div>

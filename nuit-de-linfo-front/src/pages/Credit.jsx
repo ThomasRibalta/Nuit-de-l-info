@@ -34,9 +34,9 @@ const ContributorsPage = () => {
                   <div className="tooltip">
                     <div
                       className="like-github"
-                      style={{ backgroundColor: "green" }}
+                      style={{ backgroundColor: "#71FF00" }}
                     ></div>
-                    <span>20 contributions</span>
+                    <span>30 contributions</span>
                   </div>
                 </td>
               </tr>
@@ -62,9 +62,9 @@ const ContributorsPage = () => {
                   <div className="tooltip">
                     <div
                       className="like-github"
-                      style={{ backgroundColor: "green" }}
+                      style={{ backgroundColor: "#55BF00" }}
                     ></div>
-                    <span>20 contributions</span>
+                    <span>13 contributions</span>
                   </div>
                 </td>
               </tr>
@@ -90,9 +90,9 @@ const ContributorsPage = () => {
                   <div className="tooltip">
                     <div
                       className="like-github"
-                      style={{ backgroundColor: "green" }}
+                      style={{ backgroundColor: "#3A8400" }}
                     ></div>
-                    <span>20 contributions</span>
+                    <span>8 contributions</span>
                   </div>
                 </td>
               </tr>
@@ -118,9 +118,9 @@ const ContributorsPage = () => {
                   <div className="tooltip">
                     <div
                       className="like-github"
-                      style={{ backgroundColor: "green" }}
+                      style={{ backgroundColor: "#4AA700" }}
                     ></div>
-                    <span>20 contributions</span>
+                    <span>10 contributions</span>
                   </div>
                 </td>
               </tr>

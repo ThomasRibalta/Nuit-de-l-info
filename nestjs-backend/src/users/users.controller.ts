@@ -8,7 +8,7 @@ export class UsersController {
   @Get()
   async getUsers(
     @Query('page') page = 1,
-    @Query('sortby') sortby = 'id',
+    @Query('sortby') sortby = 'xp',
     @Query('order') order = 'asc',
     @Query('only') only = null,
   ) {

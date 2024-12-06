@@ -3,16 +3,25 @@ import { User } from './schema/user.schema';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import * as bcrypt from 'bcrypt';
+import { LogsService } from 'src/logs/logs.service';
 
 @Injectable()
 export class UsersService {
-  constructor(@InjectModel('User') private readonly userModel: Model<User>) {}
+  constructor(
+    @InjectModel('User') private readonly userModel: Model<User>,
+    private readonly logsService: LogsService,
+  ) {}
 
   async getUserById(id: string, user: any) {
     if (!id) {
+      this.logsService.createLog('Error', 'User ID is required');
       return new HttpException('User ID is required', HttpStatus.BAD_REQUEST);
     }
     if (!user.role || user.role !== 'admin') {
+      this.logsService.createLog(
+        'Error',
+        `Unauthorized access by ${user.email}`,
+      );
       return new HttpException('Unauthorized', HttpStatus.UNAUTHORIZED);
     }
     const client = await this.userModel.findById(id).select('-password');
@@ -49,6 +58,10 @@ export class UsersService {
       return new HttpException('User ID is required', HttpStatus.BAD_REQUEST);
     }
     if (user.role !== 'admin' && user.userId !== id) {
+      this.logsService.createLog(
+        'Error',
+        `Unauthorized access by ${user.email}`,
+      );
       return new HttpException('Unauthorized', HttpStatus.UNAUTHORIZED);
     }
     if (updateUserDto.updatePassword) {
@@ -73,6 +86,10 @@ export class UsersService {
       return new HttpException('User ID is required', HttpStatus.BAD_REQUEST);
     }
     if (!user.role || user.role !== 'admin') {
+      this.logsService.createLog(
+        'Error',
+        `Unauthorized access by ${user.email}`,
+      );
       return new HttpException('Unauthorized', HttpStatus.UNAUTHORIZED);
     }
 

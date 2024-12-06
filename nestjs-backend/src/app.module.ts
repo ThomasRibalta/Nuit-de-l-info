@@ -9,6 +9,7 @@ import { AdminModule } from './admin/admin.module';
 import { QuizzModule } from './quizz/quizz.module';
 import { MetricsModule } from './metrics/metrics.module';
 import { MetricsMiddleware } from './metrics/metrics.middleware';
+import { LogsModule } from './logs/logs.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { MetricsMiddleware } from './metrics/metrics.middleware';
     AdminModule,
     QuizzModule,
     MetricsModule,
+    LogsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

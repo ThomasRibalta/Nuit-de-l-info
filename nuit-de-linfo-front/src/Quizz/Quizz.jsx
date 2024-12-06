@@ -30,7 +30,7 @@ function Quizz() {
     })
       .then((response) => {
         if (response.status !== 200) {
-          navigate("/login");
+          navigate("/");
           return;
         }
         return response.json();
@@ -52,7 +52,13 @@ function Quizz() {
         "Content-Type": "application/json",
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status !== 200) {
+          navigate("/");
+          return;
+        }
+        return response.json();
+      })
       .then((data) => {
         console.log("normal ", data);
 

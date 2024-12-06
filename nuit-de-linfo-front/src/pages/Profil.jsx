@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useNavigate } from "react";
 import "../coconfor.css";
 
 function Profile() {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   const fetchProfileData = async () => {
     try {
@@ -16,6 +18,7 @@ function Profile() {
       if (response.ok) {
         setUserData(data.response);
       } else {
+        navigate("/");
         throw new Error(data.message || "Une erreur est survenue");
       }
     } catch (err) {

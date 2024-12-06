@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useNavigate } from "react";
 import "../coconfor.css";
 
 function LogViewer() {
@@ -6,11 +6,16 @@ function LogViewer() {
   const [loading, setLoading] = useState(true); // Indicateur de chargement
   const [error, setError] = useState(null); // Gestion des erreurs
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const response = await fetch("http://148.113.45.177:3030/logs");
+        const response = await fetch("http://148.113.45.177:3030/logs", {
+          credentials: "include",
+        });
         if (!response.ok) {
+          navigate("/");
           throw new Error("Failed to fetch logs");
         }
         const data = await response.json();

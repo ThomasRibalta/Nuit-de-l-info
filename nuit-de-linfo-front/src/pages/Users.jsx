@@ -41,7 +41,13 @@ const Users = () => {
           headers: { "Content-Type": "application/json" },
           credentials: "include",
         })
-          .then((response) => response.json())
+          .then((response) => {
+            if (response.status !== 200) {
+              navigate("/");
+              return;
+            }
+            return response.json();
+          })
           .then((data) => {
             console.log("User deleted successfully", data);
             navigate("/admin/users");

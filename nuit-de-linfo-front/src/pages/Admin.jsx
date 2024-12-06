@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useNavigate } from "react";
 
 const Admin = () => {
   const [metrics, setMetrics] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchMetrics = async () => {
       try {
-        const response = await fetch("http://148.113.45.177:3030/metrics"); // Remplacez l'URL selon vos configurations
+        const response = await fetch("http://148.113.45.177:3030/metrics", {
+          credentials: "include",
+        }); // Remplacez l'URL selon vos configurations
         if (!response.ok) {
+          navigate("/");
           throw new Error(`Erreur HTTP : ${response.status}`);
         }
         const data = await response.json();

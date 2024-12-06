@@ -53,10 +53,6 @@ function Quizz() {
       },
     })
       .then((response) => {
-        if (response.status !== 200) {
-          navigate("/login");
-          return;
-        }
         return response.json();
       })
       .then((data) => {

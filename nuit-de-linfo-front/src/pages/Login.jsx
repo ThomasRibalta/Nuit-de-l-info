@@ -75,6 +75,9 @@ const LoginForm = () => {
         </div>
 
         <input type="submit" id="submit" value="Se connecter !" />
+        <p>
+          Si vous n'avez pas de compte <a href="/register">inscrivez-vous</a> !
+        </p>
       </form>
     </div>
   );

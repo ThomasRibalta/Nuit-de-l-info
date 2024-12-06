@@ -104,7 +104,7 @@ const RegisterForm = () => {
             onChange={(e) => setAgreeCGU(e.target.checked)}
           />
           <label htmlFor="agreeCGU">
-            J'accepte les <a href="#">CGU</a>
+            J'accepte les <a href="/cgu">CGU</a>
           </label>
           <br />
         </div>

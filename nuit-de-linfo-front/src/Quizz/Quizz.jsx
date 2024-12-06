@@ -17,7 +17,8 @@ function Quizz() {
 		method: 'GET', // ou 'POST', 'PUT', 'DELETE', etc.
 		headers: {
 			'Content-Type': 'application/json'
-		}
+		},
+		credentials : "include"
 	})
 	.then(response => response.json())
 	.then((data) => {console.log(data);if (data == false) navigate('/Quizz/') ; else setData(data.response.rep);setRatio(data.response.ratio)})},[number])
@@ -25,6 +26,7 @@ function Quizz() {
 		fetch('http://localhost:3030/quizz/' + number, {		
 			method: 'POST',
 			body : JSON.stringify({response : response}),
+			credentials : "include",
 			headers: {
 				'Content-Type': 'application/json'
 			}

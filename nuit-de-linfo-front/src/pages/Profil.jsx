@@ -8,7 +8,7 @@ function Profile() {
 
   const fetchProfileData = async () => {
     try {
-      const response = await fetch("http://localhost:3030/user", {
+      const response = await fetch("http://148.113.45.177:3030/user", {
         credentials: "include",
       });
       const data = await response.json();

@@ -29,7 +29,7 @@ const AuthProvider = ({ children }) => {
       return;
     }
 
-    fetch("http://localhost:3030/auth/user", {
+    fetch("http://148.113.45.177:3030/auth/user", {
       method: "GET",
       credentials: "include",
     })

@@ -13,7 +13,7 @@ const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3030/auth/login", {
+    fetch("http://148.113.45.177:3030/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

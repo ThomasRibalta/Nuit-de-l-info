@@ -8,7 +8,7 @@ const Logout = () => {
 
   useEffect(() => {
     const performLogout = async () => {
-      fetch("http://localhost:3030/auth/logout", {
+      fetch("http://148.113.45.177:3030/auth/logout", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

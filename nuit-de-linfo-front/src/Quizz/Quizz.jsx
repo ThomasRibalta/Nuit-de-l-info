@@ -14,7 +14,7 @@ function Quizz() {
   const [ratio, setRatio] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:3030/quizz/" + number, {
+    fetch("http://148.113.45.177:3030/quizz/" + number, {
       method: "GET", // ou 'POST', 'PUT', 'DELETE', etc.
       headers: {
         "Content-Type": "application/json",
@@ -30,7 +30,7 @@ function Quizz() {
       });
   }, [number]);
   const Send = function (response) {
-    fetch("http://localhost:3030/quizz/" + number, {
+    fetch("http://148.113.45.177:3030/quizz/" + number, {
       method: "POST",
       body: JSON.stringify({ response: response }),
       credentials: "include",

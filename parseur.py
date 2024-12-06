@@ -23,7 +23,7 @@ def read3line (fd, collection) :
     collection.insert_one(document)
         
 
-client = MongoClient("mongodb://root:rootpassword@localhost:27017/nuitInfo?authSource=admin")
+client = MongoClient("mongodb://root:rootpassword@148.113.45.177:27017/nuitInfo?authSource=admin")
 fd = open("questions.txt", mode = 'r', encoding = 'utf-8', errors='ignore')
 db = client["nuitInfo"]
 collection = db["quizzs"]

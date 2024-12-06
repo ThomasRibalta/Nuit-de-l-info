@@ -19,7 +19,7 @@ const RegisterForm = () => {
     if (!agreeCGU) {
       alert("Vous devez accepter les CGU.");
     } else {
-      fetch("http://localhost:3030/auth/register", {
+      fetch("http://148.113.45.177:3030/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

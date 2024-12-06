@@ -6,11 +6,14 @@ const Classement = () => {
   const navigate = useNavigate();
 
   const fetchUsers = async (page, sortType, filter) => {
-    const response = await fetch(`http://localhost:3030/users?page=${page}`, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    });
+    const response = await fetch(
+      `http://148.113.45.177:3030/users?page=${page}`,
+      {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      }
+    );
     if (response.status !== 200) {
       navigate("/login");
       return { items: {}, totalPages: 1 };

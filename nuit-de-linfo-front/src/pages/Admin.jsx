@@ -7,7 +7,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchMetrics = async () => {
       try {
-        const response = await fetch("http://localhost:3030/metrics"); // Remplacez l'URL selon vos configurations
+        const response = await fetch("http://148.113.45.177:3030/metrics"); // Remplacez l'URL selon vos configurations
         if (!response.ok) {
           throw new Error(`Erreur HTTP : ${response.status}`);
         }

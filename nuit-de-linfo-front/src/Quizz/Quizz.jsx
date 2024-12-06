@@ -1,5 +1,6 @@
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
+import './Quizz_style.css';
 
 function Quizz() {
   const navigate = useNavigate();
@@ -36,13 +37,14 @@ function Quizz() {
 		navigate('/Quizz/' + (parseInt(number)))}
   return (	
 		<>
-		<div>
-		<div>
-			<h1>{data.question}</h1>
-			<button onClick={() => Send("True")}>Vrai</button>
-			<button onClick={() => Send("False")}>Faux</button>
+		<div class="app">
 
-		</div>
+			<div>
+				<h1>QUESTION</h1>
+				<button onClick={() => Send("True")}>Vrai</button>
+				<button onClick={() => Send("False")}>Faux</button>
+
+			</div>
 		</div>
 		</>
 	

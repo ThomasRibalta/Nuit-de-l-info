@@ -1,6 +1,6 @@
 import { QuizzSchema, Quizz } from './schema/quizz.schema';
 import { InjectModel } from '@nestjs/mongoose';
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable, HttpStatus } from '@nestjs/common';
 import { Model } from 'mongoose';
 
 @Injectable()
@@ -16,6 +16,12 @@ export class QuizzService {
   }
 
   async getQuizz(id: string) {
+<<<<<<< HEAD
     return await this.QuizzModel.findOne({ id: id }).select('-response');
+=======
+    const rep = await this.QuizzModel.findOne({ id: id });
+
+    return new HttpException({ rep: rep }, HttpStatus.OK);
+>>>>>>> b83cc9afc5f46832d207f088a4557d4fad019068
   }
 }

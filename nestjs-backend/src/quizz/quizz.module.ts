@@ -7,7 +7,8 @@ import { UsersModule } from 'src/users/users.module';
 
 @Module({
   imports: [
-    MongooseModule.forFeature([{ name: 'Quizz', schema: QuizzSchema }]), UsersModule
+    MongooseModule.forFeature([{ name: 'Quizz', schema: QuizzSchema }]),
+    UsersModule,
   ],
   controllers: [QuizzController],
   providers: [QuizzService],

@@ -1,3 +1,16 @@
+:root {
+  --color-warning: #f0ad4e;
+  --color-warning-hover: #ec971f;
+  --color-error: #d9534f;
+  --color-error-hover: #c9302c;
+  --color-primary-hover: #337ab7;
+  --color-bg-light: #f8f9fa;
+  --color-primary: #007bff;
+  --color-bg-contrast: #343a40;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #6c757d;
+}
+
 .btn {
   width: 40%;
 }

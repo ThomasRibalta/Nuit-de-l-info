@@ -23,49 +23,6 @@ body {
   z-index: 1;
 }
 
-/* Style du menu latéral (sidenav) */
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 100px;
-}
-
-/* Style des liens dans le menu */
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-/* Changer la couleur des liens au survol */
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-/* Style pour le bouton de fermeture */
-.sidenav .close-btn {
-  position: absolute;
-  top: 60px;
-  left: -20px;
-  font-size: 36px;
-  color: #818181;
-  cursor: pointer;
-}
-
-/* Effet au survol du bouton de fermeture */
-.sidenav .close-btn:hover {
-  color: #f1f1f1;
-}
 
 /* login */
 
@@ -271,4 +228,78 @@ body {
     left: 50%;
     position: relative;
     transform: translate(-50%);
+}
+
+/* credit */
+.container-center {
+    display: flex;
+    justify-content: center;
+}
+  
+.credit-div {
+    background-color: wheat;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+
+    border-radius: 10px;
+    border: 2px solid #3a3a3a; 
+    text-align: center;
+    width: 60vw;
+
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+.credit-div .pdp {
+    width: 100px;  /* Largeur de l'image */
+    height: 100px; /* Hauteur de l'image */
+    border-radius: 50%; /* Pour rendre l'image ronde */
+  }
+
+.contributeur-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Espace uniforme entre les éléments */
+    width: 100%;
+}
+.nom-contrib{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.like-github{
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    outline: 1px solid rgba(0, 0, 0, 0.7);
+
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .tooltip span {
+    visibility: hidden;
+    background: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .tooltip:hover span {
+    visibility: visible;
+    opacity: 1;
+  }
+.credit-div a{
+    color: black;
 }

@@ -22,14 +22,10 @@ export class UserController {
     return await this.usersService.getUserById(id, req.user);
   }
 
-  @Put(':id')
+  @Get()
   @UseGuards(JwtAuthGuard)
-  async updateUserById(
-    @Param('id') id: string,
-    @Body() updateUser: UpdateUserDto,
-    @Req() req: any,
-  ) {
-    return await this.usersService.updateUserById(id, updateUser, req.user);
+  async getUser(@Req() req: any) {
+    return await this.usersService.getUserById(null, req.user);
   }
 
   @Delete(':id')

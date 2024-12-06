@@ -13,6 +13,7 @@ import Logout from "./pages/Logout.jsx";
 import Users from "./pages/Users.jsx";
 import Classement from "./pages/Classement.jsx";
 import LogViewer from "./pages/Log.jsx";
+import Profile from "./pages/Profil.jsx";
 
 function App() {
   const { Auth } = useAuth();
@@ -33,6 +34,7 @@ function App() {
           <Route path="/admin/users" element={<Users />}></Route>
           <Route path="/admin/logs" element={<LogViewer />}></Route>
           <Route path="/admin/user/:id" element={<Users />}></Route>
+          <Route path="/profil" element={<Profile />}></Route>
           <Route path="/classement" element={<Classement />}></Route>
           <Route path="*" element={<h1>404 Not Found</h1>}></Route>
         </Routes>

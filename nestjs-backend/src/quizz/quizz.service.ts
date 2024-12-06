@@ -12,22 +12,21 @@ export class QuizzService {
     @InjectModel('User') private readonly userModel: Model<User>,
   ) {}
 
-  async submitResponse(response_user: boolean, id: string, req: any) {
+  async submitResponse(response_user: any, id: string, req: any) {
     const rep = await this.QuizzModel.findOne({ id: id });
     if (!rep) return false;
-    console.log('ici');
-    console.log('po', rep.response, response_user);
-    if (rep.response == Boolean(response_user)) {
+    console.log('ici', rep.response, response_user);
+    const bol = response_user.response === 'true' ? true : false;
+
+    console.log('po', rep.response, bol);
+    if (rep.response === bol) {
       let user = await this.userModel.findById(req.user.userId);
       if (!user) return false;
       console.log('user ', user, 'rep ', rep);
       user.xp = user.xp + rep.xp;
       console.log(rep.xp);
-      await this.userModel.findByIdAndUpdate(req.user.userId, user[0]);
-      return new HttpException(
-        { rep: { ...rep, result: true } },
-        HttpStatus.OK,
-      );
+      await this.userModel.findByIdAndUpdate(req.user.userId, user);
+      return new HttpException({ rep: rep, result: true }, HttpStatus.OK);
     } else return new HttpException({ rep: rep, result: false }, HttpStatus.OK);
   }
 
@@ -45,7 +44,11 @@ export class QuizzService {
     }
 
     const rep = await this.QuizzModel.findOne({ id: id });
-    if (!rep) return false;
+    if (!rep)
+      return new HttpException(
+        { rep: null, ratio: ratio },
+        HttpStatus.BAD_REQUEST,
+      );
     return new HttpException({ rep: rep, ratio: ratio }, HttpStatus.OK);
   }
 }

@@ -1,10 +1,10 @@
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./Quizz_style.css";
-import im1 from "./../../public/83613ba3-d1eb-426c-adde-0ecb4beaa290.jpg";
-import im2 from "./../../public/72e44373-9ace-4bdd-9222-112f8ca1383a.jpg";
-import im3 from "./../../public/0b4bbf57-3174-41b5-b4ba-e09ecebafe57.jpg";
-import im4 from "./../../public/e6bad030-e058-4ef3-a939-13b90e573668.jpg";
+import im1 from "../image/1.jpg";
+import im2 from "../image/2.jpg";
+import im3 from "../image/3.jpg";
+import im4 from "../image/4.jpg";
 
 function Quizz() {
   const navigate = useNavigate();
@@ -12,23 +12,37 @@ function Quizz() {
   const root = useLocation();
   const [data, setData] = useState({});
   const [ratio, setRatio] = useState({});
+  const [currentImage, setCurrentImage] = useState(im1); // Image affichée
+  const [fadeClass, setFadeClass] = useState(""); // Classe pour l'effet de fondu
+  const [popup, setPopup] = useState({
+    visible: false,
+    message: "",
+    color: "",
+  }); // État de la pop-up
 
   useEffect(() => {
     fetch("http://148.113.45.177:3030/quizz/" + number, {
-      method: "GET", // ou 'POST', 'PUT', 'DELETE', etc.
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
       credentials: "include",
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.status !== 200) {
+          navigate("/login");
+          return;
+        }
+        return response.json();
+      })
       .then((data) => {
-        console.log(data);
-        if (data == false) navigate("/Quizz/");
+        console.log("data useeffect", data);
+        if (!data.response.rep) navigate("/Quizz/");
         else setData(data.response.rep);
         setRatio(data.response.ratio);
       });
   }, [number]);
+
   const Send = function (response) {
     fetch("http://148.113.45.177:3030/quizz/" + number, {
       method: "POST",
@@ -40,42 +54,96 @@ function Quizz() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        if (data == false) navigate("/Quizz/");
-        else if (data.response.result == true) console.log("good rep");
-        else console.log("Faux");
-        if (
-          data.response.result == false ||
-          data.response.res.response == false
-        )
-          console.log(data.response.rep.explication);
+        console.log("normal ", data);
+
+        if (data === false) {
+          navigate("/Quizz/");
+          return;
+        }
+
+        const isCorrect = data.response.result;
+        const explication =
+          data.response.rep.explication || "Pas d'explication disponible.";
+
+        // Afficher la pop-up
+        setPopup({
+          visible: true,
+          message: isCorrect
+            ? `Correct ! ${explication}`
+            : `Incorrect ! ${explication}`,
+          color: isCorrect ? "green" : "red",
+        });
+
+        // Masquer la pop-up après 2 secondes
+        setTimeout(() => {
+          setPopup({ visible: false, message: "", color: "" });
+        }, 2000);
+
+        // Navigation vers la question suivante
+        number++;
+        navigate("/Quizz/" + parseInt(number));
       });
-    console.log("");
-    number++;
-    navigate("/Quizz/" + parseInt(number));
   };
+
   const Picture = function (ratio) {
     console.log("ratio", ratio);
-    if ((ratio >= 0 && ratio < 25) || ratio == undefined) return im1;
+    if ((ratio >= 0 && ratio < 25) || ratio === undefined) return im1;
     else if (ratio >= 25 && ratio < 50) return im2;
     else if (ratio >= 50 && ratio < 75) return im3;
     else return im4;
   };
+
+  // Effet de changement d'image
+  useEffect(() => {
+    const newImage = Picture(ratio);
+    console.log("newImage", newImage);
+    console.log("currentImage", currentImage);
+    if (newImage !== currentImage) {
+      setFadeClass("fade-out"); // Début de l'animation
+      setTimeout(() => {
+        setCurrentImage(newImage); // Changement d'image
+        setFadeClass("fade-in"); // Fin de l'animation
+      }, 300); // Durée de l'effet en ms
+    }
+  }, [ratio]);
+
   return (
     <>
-      <div class="app">
-        <div class="div_quizz">
+      <div className="app">
+        <div className="div_quizz">
           <h1>{data.question}</h1>
           <img
-            src={Picture(ratio)}
+            src={currentImage}
             alt="Description de l'image"
+            className={`image ${fadeClass}`}
             style={{ width: "150px" }}
           />
         </div>
-        <div class="rep_quizz">
-          <button onClick={() => Send("True")}>Vrai</button>
-          <button onClick={() => Send("False")}>Faux</button>
+        <div className="rep_quizz">
+          <button onClick={() => Send("true")}>Vrai</button>
+          <button onClick={() => Send("false")}>Faux</button>
         </div>
+
+        {/* Pop-up */}
+        {popup.visible && (
+          <div
+            className="popup"
+            style={{
+              backgroundColor: popup.color,
+              color: "white",
+              padding: "10px",
+              borderRadius: "5px",
+              position: "fixed",
+              top: "90px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: "1000",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+            }}
+          >
+            {popup.message}
+          </div>
+        )}
       </div>
     </>
   );

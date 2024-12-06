@@ -23,7 +23,7 @@ export class QuizzController {
   @Post(':id')
   @UseGuards(JwtAuthGuard)
   submitResponse(
-    @Body() response: boolean,
+    @Body() response: any,
     @Param('id') id: string,
     @Req() req: any,
   ) {

@@ -11,7 +11,7 @@ const MentionLegale = () => {
         Le site web, est édité par :<br />
         Nom de l’éditeur : l'équipe Coconfor
         <br />
-        Adresse e-mail : coconfor@gmail.com
+        Adresse e-mail : coconfor.dev@gmail.com
       </p>
 
       <h2>2. Directeur de la publication</h2>

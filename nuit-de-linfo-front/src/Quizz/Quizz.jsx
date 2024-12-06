@@ -42,7 +42,7 @@ function Quizz() {
 		navigate('/Quizz/' + (parseInt(number)))}
 	const Picture = function(ratio){
 		console.log("ratio",ratio)
-		if (ratio >= 0 && ratio < 25)
+		if ((ratio >= 0 && ratio < 25) || ratio == undefined)
 			return im1
 		else if (ratio >= 25 && ratio < 50)
 			return im2
@@ -53,7 +53,7 @@ function Quizz() {
 	}
   return (	
 		<>
-		<div >
+		<div className = "app">
 		<div style={{top :"60px", position :"relative"}}>
 			<h1>{data.question}</h1>
 			<button onClick={() => Send("True")}>Vrai</button>

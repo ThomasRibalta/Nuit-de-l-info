@@ -33,14 +33,6 @@ const Users = () => {
 
   const userActions = [
     {
-      label: "Edit",
-      onClick: (id) => {
-        console.log(`Editing user ${id}`);
-        navigate(`/admin/user/${id}`);
-      },
-      className: "btn btn-primary btn-sm",
-    },
-    {
       label: "Delete",
       onClick: (id) => {
         console.log(`Deleting user ${id}`);

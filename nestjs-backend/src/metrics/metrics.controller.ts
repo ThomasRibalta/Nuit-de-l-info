@@ -1,12 +1,15 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Req } from '@nestjs/common';
 import { MetricsService } from './metrics.service';
+import { JwtAuthGuard } from '../jwt/jwt-auth.guard';
+import { UseGuards } from '@nestjs/common';
 
 @Controller('metrics')
 export class MetricsController {
   constructor(private readonly metricsService: MetricsService) {}
 
   @Get()
-  async getMetrics() {
-    return this.metricsService.getMetrics();
+  @UseGuards(JwtAuthGuard)
+  async getMetrics(@Req() req: any) {
+    return this.metricsService.getMetrics(req);
   }
 }

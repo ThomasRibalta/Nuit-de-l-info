@@ -14,6 +14,7 @@ import Users from "./pages/Users.jsx";
 import Classement from "./pages/Classement.jsx";
 import LogViewer from "./pages/Log.jsx";
 import Profile from "./pages/Profil.jsx";
+import ContributorsPage from "./pages/Credit.jsx";
 
 function App() {
   const { Auth } = useAuth();
@@ -29,6 +30,7 @@ function App() {
           <Route path="/logout" element={<Logout />}></Route>
           <Route path="/register" element={<RegisterForm />}></Route>
           <Route path="/mention" element={<MentionLegale />}></Route>
+          <Route path="/credit" element={<ContributorsPage />}></Route>
           <Route path="/cgu" element={<Cgu />}></Route>
           <Route path="/admin" element={<Admin />}></Route>
           <Route path="/admin/users" element={<Users />}></Route>

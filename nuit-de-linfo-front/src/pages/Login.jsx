@@ -35,11 +35,11 @@ const LoginForm = () => {
           login(data.response.client);
           navigate("/Quizz");
         } else {
-          navigate("/");
+          navigate("/login");
         }
       })
       .catch((error) => {
-        navigate("/");
+        navigate("/login");
       });
   };
 

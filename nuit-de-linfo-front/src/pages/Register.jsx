@@ -36,18 +36,18 @@ const RegisterForm = () => {
           if (response.status === 200 || response.status === 201) {
             return response.json();
           }
-          navigate("/");
+          navigate("/register");
         })
         .then((data) => {
           if (data.status === 201 || data.status === 200) {
             login(data.response.client);
             navigate("/Quizz");
           } else {
-            navigate("/");
+            navigate("/register");
           }
         })
         .catch((error) => {
-          navigate("/");
+          navigate("/register");
         });
     }
   };

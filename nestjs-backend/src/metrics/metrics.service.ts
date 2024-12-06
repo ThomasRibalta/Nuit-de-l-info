@@ -43,7 +43,8 @@ export class MetricsService implements OnModuleInit {
     this.httpRequestDuration.observe({ method, path }, duration);
   }
 
-  async getMetrics(): Promise<string> {
-    return this.registry.metrics();
+  async getMetrics(): Promise<any> {
+    const metric = await this.registry.getMetricsAsJSON();
+    return metric;
   }
 }

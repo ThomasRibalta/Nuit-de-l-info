@@ -1,41 +1,79 @@
-import React from "react";
-import "../coconfor.css";
+import React, { useEffect, useState } from "react";
 
 const Admin = () => {
-  return (
-    <>
-      <h1>Admin Dashboard</h1>
-      <div className="log-container">
-        {/* LogChat Box */}
-        <div className="logchat-box">
-          <div className="log green">✅ Successful request processed</div>
-          <div className="log red">❌ Failed to connect to the database</div>
-          <div className="log yellow">⚠️ API response delayed</div>
-          <div className="log yellow">⚠️ API response delayed</div>
-          <div className="log green">✅ Successful request processed</div>
-          <div className="log yellow">⚠️ API response delayed</div>
-          <div className="log yellow">⚠️ API response delayed</div>
-          <div className="log red">❌ Failed to connect to the database</div>
-          <div className="log red">❌ Failed to connect to the database</div>
-          <div className="log green">✅ Successful request processed</div>
-          <div className="log green">✅ Successful request processed</div>
-        </div>
+  const [metrics, setMetrics] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-        {/* LogStats Box */}
-        <div className="logstats-box">
-          <h2>Site Statistics</h2>
-          <div className="stat">
-            Total Requests: <span>1250</span>
-          </div>
-          <div className="stat">
-            Active Users: <span>320</span>
-          </div>
-          <div className="stat">
-            Error Rate: <span>0.8%</span>
-          </div>
+  useEffect(() => {
+    const fetchMetrics = async () => {
+      try {
+        const response = await fetch("http://localhost:3030/metrics"); // Remplacez l'URL selon vos configurations
+        if (!response.ok) {
+          throw new Error(`Erreur HTTP : ${response.status}`);
+        }
+        const data = await response.json();
+        setMetrics(data);
+      } catch (error) {
+        console.error("Erreur lors de la récupération des métriques :", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMetrics();
+  }, []);
+
+  if (loading) {
+    return <div>Chargement des métriques...</div>;
+  }
+
+  return (
+    <div
+      className="container"
+      style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}
+    >
+      <h1>Tableau de bord des métriques</h1>
+      {metrics.length === 0 ? (
+        <p>Aucune métrique disponible.</p>
+      ) : (
+        <div>
+          {metrics.map((metric, index) => (
+            <div
+              key={index}
+              style={{
+                marginBottom: "20px",
+                padding: "10px",
+                border: "1px solid #ccc",
+                borderRadius: "5px",
+              }}
+            >
+              <h3>{metric.name}</h3>
+              <p>
+                <strong>Description :</strong> {metric.help}
+              </p>
+              <p>
+                <strong>Type :</strong> {metric.type}
+              </p>
+              <div>
+                <h4>Valeurs :</h4>
+                {metric.values && metric.values.length > 0 ? (
+                  <ul>
+                    {metric.values.map((value, idx) => (
+                      <li key={idx}>
+                        <strong>Labels:</strong> {JSON.stringify(value.labels)}{" "}
+                        <strong>Valeur:</strong> {value.value}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>Aucune donnée collectée pour cette métrique.</p>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    </>
+      )}
+    </div>
   );
 };
 

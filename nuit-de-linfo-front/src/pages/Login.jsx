@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../coconfor.css";
 import logo from "../image/logo.webp";
+import { useAuth } from "../context/Auth";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { login } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -31,7 +33,7 @@ const LoginForm = () => {
       .then((data) => {
         if (data.status === 201 || data.status === 200) {
           login(data.response.client);
-          navigate("/review");
+          navigate("/Quizz");
         } else {
           navigate("/");
         }
@@ -75,6 +77,9 @@ const LoginForm = () => {
         </div>
 
         <input type="submit" id="submit" value="Se connecter !" />
+        <p>
+          Si vous n'avez pas de compte <a href="/register">inscrivez-vous</a> !
+        </p>
       </form>
     </div>
   );

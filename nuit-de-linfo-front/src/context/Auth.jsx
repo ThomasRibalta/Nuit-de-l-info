@@ -12,11 +12,13 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const login = (client) => {
+    console.log(client);
     setAuth({ isAuthenticated: true, user: client });
     localStorage.setItem("isAuthenticated", "true");
   };
 
   const logout = () => {
+    console.log("logout");
     setAuth({ isAuthenticated: false, user: null });
     localStorage.setItem("isAuthenticated", "false");
   };
@@ -35,10 +37,10 @@ const AuthProvider = ({ children }) => {
       .then((data) => {
         if (data.response?.client) {
           login(data.response.client);
-          logout();
         }
       })
       .catch(() => {
+        console.log("error");
         logout();
       })
       .finally(() => {

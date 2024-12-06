@@ -214,3 +214,61 @@ body {
   font-weight: bold;
   color: #000;
 }
+
+
+
+/* classement */
+
+.classement-div {
+    background-color: wheat;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+
+    border-radius: 10px;
+    border: 2px solid #3a3a3a; 
+    text-align: center;
+    width: 60vw;
+  }
+
+.classement-div h1{
+    margin: 5px;
+}
+
+.classement-div p{
+    margin: 3px;
+}
+
+
+.classement table {
+    width: 100%;
+    border: none;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid black;
+  }
+
+.classement td, .classement th {
+    border: 1px solid black;
+    padding: 5px;
+  }
+
+  .classement tr {
+    height: 20px;
+  }
+
+.crown{
+    width: 20px;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%);
+}
